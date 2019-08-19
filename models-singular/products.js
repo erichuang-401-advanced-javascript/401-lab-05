@@ -1,13 +1,11 @@
 'use strict';
 
-// Where is our schema defined?
-// How do we get it in here so we can run methods on it?
-const schema = require('./categories-schema.js');
+const productsSchema = require('./products-schema');
 
-class Categories {
+class Products {
 
-  constructor() {}
-
+  constructor (){}
+  
   /**
    * Uses Mongoose method to get by ID or return a list of database results
    * @param {*} _id 
@@ -15,9 +13,9 @@ class Categories {
   get( _id ) {
 
     if ( _id ){
-      return schema.findById( _id );
+      return productsSchema.findById( _id );
     } else {
-      return schema.find( {} )
+      return productsSchema.find( {} )
         .then( results => {
           return { 
             count : results.length,
@@ -34,7 +32,7 @@ class Categories {
    */
   create( record ) {
     // Call the appropriate mongoose method to create a new record
-    let newRecord = new schema( record );
+    let newRecord = new productsSchema( record );
     return newRecord.save();
   }
 
@@ -45,7 +43,7 @@ class Categories {
    */
   update( _id, update ) {
     // Call the appropriate mongoose method to update a record
-    return schema.findByIdAndUpdate( _id, update, { new : true } );
+    return productsSchema.findByIdAndUpdate( _id, update, { new : true } );
   }
 
   /**
@@ -54,10 +52,9 @@ class Categories {
    */
   delete( _id ) {
     // Call the appropriate mongoose method to delete a record
-    return schema.findByIdAndDelete( _id );
-
+    return productsSchema.findByIdAndDelete( _id );
   }
 
 }
 
-module.exports = Categories;
+module.exports = Products;

@@ -16,7 +16,18 @@ class Model {
    * @param _id {string} optional mongo record id
    * @returns {count:#,results:[{*}]} | {*}
    */
-  get(_id) {
+  get( _id ) {
+
+    if ( _id ){
+      return this.schema.findById( _id );
+    } else {
+      return this.schema.find( {} )
+        .then( results => {
+          return { 
+            count : results.length,
+            results : results };
+        });
+    }
 
   }
 
@@ -25,7 +36,10 @@ class Model {
    * @param record {object} matches the format of the schema
    * @returns {*}
    */
-  create(record) {
+  create( record ) {
+
+    let newRecord = new this.schema( record );
+    return newRecord.save();
 
   }
 
@@ -35,7 +49,9 @@ class Model {
    * @param record {object} The record data to replace. ID is a required field
    * @returns {*}
    */
-  update(_id, record) {
+  update( _id, record ) {
+
+    return this.schema.findByIdAndUpdate( _id, record, { new : true } );
 
   }
 
@@ -44,7 +60,9 @@ class Model {
    * @param _id {string} Mongo Record ID
    * @returns {*}
    */
-  delete(_id) {
+  delete( _id ) {
+
+    return this.schema.findByIdAndDelete( _id );
 
   }
 
