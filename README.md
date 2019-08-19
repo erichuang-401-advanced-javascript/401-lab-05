@@ -3,9 +3,9 @@
 ### Author: Eric Huang
 
 ### Links and Resources
-* [submission PR](http://xyz.com)
-* [travis](http://xyz.com)
-* [front-end](http://xyz.com) (when applicable)
+* [submission PR](https://github.com/erichuang-401-advanced-javascript/401-lab-05/pull/1)
+* [travis](https://travis-ci.com/erichuang-401-advanced-javascript/401-lab-05)
+* [front-end](https://erichuang-401-lab05.herokuapp.com/)
 
 #### Documentation
 * [jsdoc](http://xyz.com) (Server assignments)
