@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest --verbose",
     "test-watch": "jest --watchAll --verbose",
-    "startDB": "mkdir -p ./.db && mongod --dbpath ./.db"
+    "startDB": "mkdir -p ./.db && mongod --dbpath ./.db",
+    "lint": "lint"
   },
   "jest": {
     "testEnvironment": "node"
